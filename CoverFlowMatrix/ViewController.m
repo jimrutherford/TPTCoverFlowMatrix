@@ -34,14 +34,13 @@
 		[dataArray addObject:[NSString stringWithFormat:@"bamfield%d.png", i+1]];
 	}
 	
-	for (int i=0; i<5; i++) {
-		[dataArray addObject:[NSString stringWithFormat:@"paper%d.png", i+1]];
-	}
-	
-	for (int i=0; i<8; i++) {
-		[dataArray addObject:[NSString stringWithFormat:@"mexico%d.png", i+1]];
-	}
-	
+//	for (int i=0; i<5; i++) {
+//		[dataArray addObject:[NSString stringWithFormat:@"paper%d.png", i+1]];
+//	}
+//	
+//	for (int i=0; i<8; i++) {
+//		[dataArray addObject:[NSString stringWithFormat:@"mexico%d.png", i+1]];
+//	}
 	
 	[self.horizontalCollectionView registerClass:[ProjectCell class] forCellWithReuseIdentifier:kProjectCellIdentifier];
 	

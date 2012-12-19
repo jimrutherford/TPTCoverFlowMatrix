@@ -12,5 +12,6 @@
 
 @property (readwrite, nonatomic, assign) CGSize cellSize;
 @property (readwrite, nonatomic, assign) CGFloat cellSpacing;
+@property (readonly, nonatomic, strong) NSIndexPath *currentIndexPath;
 
 @end

@@ -8,39 +8,40 @@
 
 #import "TPTCoverFlowLayout.h"
 
+// If we decide to make this vertical we could use these macros to help make it painless...
+//#define XORY(axis, point) ((axis) ? (point.y) : (point.x))
+//#define WORH(axis, size) ((axis) ? (size.height) : (size.width))
+
+#define ZOOM_FACTOR  0.3f
+#define ALPHA_FACTOR 0.7f
+
 @interface TPTCoverFlowLayout ()
 
+@property (readwrite, nonatomic, strong) NSIndexPath *currentIndexPath;
 @property (readwrite, nonatomic, assign) CGFloat centerOffset;
 @property (readwrite, nonatomic, assign) NSInteger cellCount;
 
 @end
 
-
 @implementation TPTCoverFlowLayout
-
-#define ACTIVE_DISTANCE 100
-#define TRANSLATE_DISTANCE 100
-#define ZOOM_FACTOR 0.2
-#define FLOW_OFFSET 30
 
 - (id)init
 {
-    self = [super init];
-    if (self)
-    {
+    if ((self = [super init]) != NULL)
+	{
 		[self setup];
-    }
+	}
     return self;
 }
 
-
-- (void) setup
+- (void)awakeFromNib
 {
-	self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-	self.itemSize = (CGSize){250, 250};
-	self.sectionInset = UIEdgeInsetsMake(225, 0, 225, 0);
-	
-	self.cellSize = (CGSize){ 250.0f, 250.0f };
+	[self setup];
+}
+
+- (void)setup
+{
+    self.cellSize = (CGSize){ 250.0f, 250.0f };
     self.cellSpacing = 250.0f;
 }
 
@@ -49,13 +50,12 @@
     [super prepareLayout];
 	
 	self.centerOffset = (self.collectionView.bounds.size.width - self.cellSpacing) * 0.5f;
-	
     self.cellCount = [self.collectionView numberOfItemsInSection:0];
 }
 
 - (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)oldBounds
 {
-    return YES;
+    return(YES);
 }
 
 - (CGSize)collectionViewContentSize
@@ -67,142 +67,85 @@
     return(theSize);
 }
 
-
--(NSArray*)xxxlayoutAttributesForElementsInRect:(CGRect)rect
-{
-    NSArray* array = [super layoutAttributesForElementsInRect:rect];
-    CGRect visibleRect;
-    visibleRect.origin = self.collectionView.contentOffset;
-    visibleRect.size = self.collectionView.bounds.size;
-    
-    for (UICollectionViewLayoutAttributes* attributes in array) {
-       attributes.alpha = .5;
-		if (attributes.representedElementCategory == UICollectionElementCategoryCell)
-        {
-            if (CGRectIntersectsRect(attributes.frame, rect)) {
-				[self setCellAttributes:attributes forVisibleRect:visibleRect];
-            }
-			
-        }
-    }
-    return array;
-}
-
-
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
 {
-    NSMutableArray *theLayoutAttributes = [NSMutableArray array];
-	
-	CGRect visibleRect;
-    visibleRect.origin = self.collectionView.contentOffset;
-    visibleRect.size = self.collectionView.bounds.size;
+    NSMutableArray *layoutAttributes = [NSMutableArray array];
 	
 	// Cells...
 	// TODO -- 3 is a bit of a fudge to make sure we get all cells... Ideally we should compute the right number of extra cells to fetch...
-    NSInteger theStart = MIN(MAX((NSInteger)floorf(CGRectGetMinX(rect) / self.cellSpacing) - 3, 0), self.cellCount);
-    NSInteger theEnd = MIN(MAX((NSInteger)ceilf(CGRectGetMaxX(rect) / self.cellSpacing) + 3, 0), self.cellCount);
+    NSInteger start = MIN(MAX((NSInteger)floorf(CGRectGetMinX(rect) / self.cellSpacing) - 3, 0), self.cellCount);
+    NSInteger end = MIN(MAX((NSInteger)ceilf(CGRectGetMaxX(rect) / self.cellSpacing) + 3, 0), self.cellCount);
 	
-	NSLog(@"START - %i, END - %i", theStart, theEnd);
-	
-    for (NSInteger N = theStart; N != theEnd; ++N)
+    for (NSInteger i = start; i != end; ++i)
 	{
-        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:N inSection:0];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i inSection:0];
 		
-        UICollectionViewLayoutAttributes *theAttributes = [self layoutAttributesForItemAtIndexPath:indexPath];
-        if (theAttributes != NULL)
+        UICollectionViewLayoutAttributes *attributes = [self layoutAttributesForItemAtIndexPath:indexPath];
+        if (attributes != NULL)
 		{
-			if (theAttributes.representedElementCategory == UICollectionElementCategoryCell)
-			{
-				if (CGRectIntersectsRect(theAttributes.frame, rect)) {
-					theAttributes.alpha = .5;
-					[self setCellAttributes:theAttributes forVisibleRect:visibleRect];
-				}
-			}
-			[theLayoutAttributes addObject:theAttributes];
+            [layoutAttributes addObject:attributes];
 		}
-
 	}
 	
-	
-    return(theLayoutAttributes);
+    return(layoutAttributes);
 }
-
-
-
-- (void)setCellAttributes:(UICollectionViewLayoutAttributes *)attributes forVisibleRect:(CGRect)visibleRect
-{
-    CGFloat distance = CGRectGetMidX(visibleRect) - attributes.center.x;
-    CGFloat normalizedDistance = distance / ACTIVE_DISTANCE;
-    BOOL isLeft = distance > 0;
-    CATransform3D transform = CATransform3DIdentity;
-    transform.m34 = -1/(4.6777 * self.itemSize.width);
-	
-    if (ABS(distance) < ACTIVE_DISTANCE)
-    {
-        if (ABS(distance) < TRANSLATE_DISTANCE)
-        {
-            transform = CATransform3DTranslate(CATransform3DIdentity, (isLeft? - FLOW_OFFSET : FLOW_OFFSET) * ABS(distance/TRANSLATE_DISTANCE), 0, (1 - ABS(normalizedDistance)) * 40000 + (isLeft? 250 : 0));
-        }
-        else
-        {
-            transform = CATransform3DTranslate(CATransform3DIdentity, (isLeft? - FLOW_OFFSET : FLOW_OFFSET), 0, (1 - ABS(normalizedDistance)) * 40000 + (isLeft? 250 : 0));
-        }
-
-        transform.m34 = -1/(4.6777 * self.itemSize.width);
-        CGFloat zoom = 1 + ZOOM_FACTOR*(1 - ABS(normalizedDistance));
-        
-		transform = CATransform3DScale(transform, zoom, zoom, 1);
-		
-        attributes.alpha = ((ABS(ACTIVE_DISTANCE - ABS(distance)) + 1) /100) +0.5f;
-    }
-    else
-    {
-        transform = CATransform3DTranslate(transform, isLeft? -FLOW_OFFSET : FLOW_OFFSET, 0, 0);
-        attributes.zIndex = 0;
-    }
-    attributes.transform3D = transform;
-}
-
 
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewLayoutAttributes *attributes = [super layoutAttributesForItemAtIndexPath:indexPath];
-    CGRect visibleRect;
-    visibleRect.origin = self.collectionView.contentOffset;
-    visibleRect.size = self.collectionView.bounds.size;
-    
-	[self setCellAttributes:attributes forVisibleRect:visibleRect];
-    
-    return attributes;
+	// Capture some commonly used variables...
+    const CGFloat currentRow = indexPath.row;
+	const CGRect viewBounds = self.collectionView.bounds;
+	
+    UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
+	attributes.size = self.cellSize;
+	
+	// Delta is distance from center of the view...
+	CGFloat distance = ABS((currentRow + 0.5f) * self.cellSpacing + self.centerOffset - viewBounds.size.width * 0.5f - self.collectionView.contentOffset.x);
+	
+	// TODO - we should write a getter for this that calculates the value. Setting it constantly is wasteful.
+	if (roundf(distance/self.cellSpacing) == 0)
+	{
+		self.currentIndexPath = indexPath;
+	}
+	
+	// set the center point of our cell
+	const CGFloat thePosition = (currentRow + 0.5f) * (self.cellSpacing);
+	attributes.center = (CGPoint){ thePosition + self.centerOffset, CGRectGetMidY(viewBounds) };
+	
+	CATransform3D transform = CATransform3DIdentity;
+	transform.m34 = -1.0f / 250; // Need to figure out what this actually does.
+	
+
+	CGFloat zoom;
+	if (distance < self.cellSpacing) {
+		zoom = [self interpolateValueFrom:distance withFactorOf:ZOOM_FACTOR];
+		attributes.alpha = [self interpolateValueFrom:distance withFactorOf:ALPHA_FACTOR];
+	} else {
+		zoom = 1.0f - ZOOM_FACTOR;
+		attributes.alpha = 1.0f - ALPHA_FACTOR;
+	}
+	
+    transform = CATransform3DScale(transform, zoom, zoom, 1.0f);
+	
+	attributes.transform3D = transform;
+	
+    return(attributes);
 }
 
-
-
-
+- (CGFloat) interpolateValueFrom:(CGFloat)value withFactorOf:(CGFloat)factor
+{
+	return (1 - ((value*100)/self.cellSpacing * factor) / 100);
+}
 
 - (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity
 {
-	/*CGPoint theTargetContentOffset = proposedContentOffset;
-    
-        theTargetContentOffset.x = roundf(theTargetContentOffset.x / 200) * 200;
-	int cellCount = 50;
-        theTargetContentOffset.x = MIN(theTargetContentOffset.x, (cellCount - 1) * 200);
+    CGPoint theTargetContentOffset = proposedContentOffset;
+	
+	theTargetContentOffset.x = roundf(theTargetContentOffset.x / self.cellSpacing) * self.cellSpacing;
+	theTargetContentOffset.x = MIN(theTargetContentOffset.x, (self.cellCount - 1) * self.cellSpacing);
 	
     return(theTargetContentOffset);
-  */
-	CGFloat offsetAdjustment = MAXFLOAT;
-    CGFloat horizontalCenter = proposedContentOffset.x + (CGRectGetWidth(self.collectionView.bounds) / 2.0);
-    
-    CGRect targetRect = CGRectMake(proposedContentOffset.x, 0.0, self.collectionView.bounds.size.width, self.collectionView.bounds.size.height);
-    NSArray* array = [super layoutAttributesForElementsInRect:targetRect];
-    
-    for (UICollectionViewLayoutAttributes* layoutAttributes in array) {
-        CGFloat itemHorizontalCenter = layoutAttributes.center.x;
-        if (ABS(itemHorizontalCenter - horizontalCenter) < ABS(offsetAdjustment)) {
-            offsetAdjustment = itemHorizontalCenter - horizontalCenter;
-        }
-    }
-    return CGPointMake(proposedContentOffset.x + offsetAdjustment, proposedContentOffset.y); 
 }
+
 
 @end
