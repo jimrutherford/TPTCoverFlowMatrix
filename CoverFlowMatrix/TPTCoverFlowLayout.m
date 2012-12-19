@@ -12,7 +12,7 @@
 //#define XORY(axis, point) ((axis) ? (point.y) : (point.x))
 //#define WORH(axis, size) ((axis) ? (size.height) : (size.width))
 
-#define ZOOM_FACTOR  0.3f
+#define ZOOM_FACTOR  0.1f
 #define ALPHA_FACTOR 0.7f
 
 @interface TPTCoverFlowLayout ()
@@ -41,7 +41,7 @@
 
 - (void)setup
 {
-    self.cellSize = (CGSize){ 250.0f, 250.0f };
+    self.cellSize = (CGSize){ 250.0f, 700.0f };
     self.cellSpacing = 250.0f;
 }
 
