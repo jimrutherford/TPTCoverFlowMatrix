@@ -7,11 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "TPTVerticalCollectionCell.h"
-#import "TPTCoverFlowLayout.h"
-#import "TPTVerticalCollectionView.h"
-
-#define kVerticalCollectionCellIdentifier @"verticalCollectionCellIdentifier"
+#import "TPTCoverFlowMatrix.h"
 
 @interface ViewController ()
 
@@ -19,14 +15,13 @@
 
 @implementation ViewController
 
-
+@synthesize coverFlowMatrix;
 @synthesize dataArray;
 
 @synthesize blurArray;
 @synthesize bamfieldArray;
 @synthesize paperArray;
 @synthesize mexicoArray;
-
 @synthesize spaceArray;
 @synthesize travelArray;
 @synthesize winterArray;
@@ -81,37 +76,16 @@
 	
 	dataArray = [NSArray arrayWithObjects: blurArray, bamfieldArray, paperArray, mexicoArray, spaceArray, travelArray, winterArray, foodArray, celebrityArray, autumnArray, animalArray, nil];
 	
-	TPTCoverFlowLayout *flowLayout = [[TPTCoverFlowLayout alloc] init];
-	[flowLayout setItemSize:CGSizeMake(250, self.view.frame.size.height)];
 	
-	[self.horizontalCollectionView registerClass:[TPTVerticalCollectionCell class] forCellWithReuseIdentifier:kVerticalCollectionCellIdentifier];
-	[self.horizontalCollectionView setCollectionViewLayout:flowLayout];
+	coverFlowMatrix = [[TPTCoverFlowMatrix alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+	coverFlowMatrix.dataArray = dataArray;
+
+	[self.view addSubview:coverFlowMatrix];
+	
+	
 	
 }
 
--(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-	return 1;
-}
-
--(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-	//NSLog(@"Number of items in section = %i", [dataArray count]);
-	return [dataArray count];
-}
-
--(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-	
-	static NSString *cellIdentifier = kVerticalCollectionCellIdentifier;
-	TPTVerticalCollectionCell *cell = (TPTVerticalCollectionCell *)[self.horizontalCollectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-	
-	NSArray *cellData = [dataArray objectAtIndex:indexPath.row];
-	
-	//NSLog(@"Cell Data : %@", cellData);
-	
-	[cell.verticalCollection setDataArray:cellData];
-	
-	return cell;
-	
-}
 
 
 - (void)didReceiveMemoryWarning

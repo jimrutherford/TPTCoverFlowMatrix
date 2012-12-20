@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TPTVerticalCollectionView.h"
+#import "TPTCoverFlowMatrix.h"
 
-@interface ViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface ViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UICollectionView *horizontalCollectionView;
+@property (strong, nonatomic) TPTCoverFlowMatrix * coverFlowMatrix;
 
 @property (nonatomic, strong) NSArray *dataArray;
 

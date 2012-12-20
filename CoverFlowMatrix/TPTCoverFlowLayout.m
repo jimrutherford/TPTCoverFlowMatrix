@@ -8,10 +8,6 @@
 
 #import "TPTCoverFlowLayout.h"
 
-// If we decide to make this vertical we could use these macros to help make it painless...
-//#define XORY(axis, point) ((axis) ? (point.y) : (point.x))
-//#define WORH(axis, size) ((axis) ? (size.height) : (size.width))
-
 #define ZOOM_FACTOR  0.1f
 #define ALPHA_FACTOR 0.7f
 
@@ -41,8 +37,7 @@
 
 - (void)setup
 {
-    self.cellSize = (CGSize){ 250.0f, 700.0f };
-    self.cellSpacing = 250.0f;
+	// nothing to do here
 }
 
 - (void)prepareLayout

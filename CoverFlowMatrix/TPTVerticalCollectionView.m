@@ -40,6 +40,9 @@
 
 	[self.collectionView registerClass:[TPTCell class] forCellWithReuseIdentifier:kProjectCellIdentifier];
 	
+	collectionView.showsHorizontalScrollIndicator = NO;
+	collectionView.showsVerticalScrollIndicator = NO;
+	
 	collectionView.dataSource = self;
 	collectionView.delegate = self;
 	

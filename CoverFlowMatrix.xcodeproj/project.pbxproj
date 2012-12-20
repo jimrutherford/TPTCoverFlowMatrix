@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		378E580316837C500036C2D1 /* TPTCoverFlowMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = 378E580216837C500036C2D1 /* TPTCoverFlowMatrix.m */; };
 		37C7477B167BD33100A3D9A0 /* bamfield1.png in Resources */ = {isa = PBXBuildFile; fileRef = 37C74758167BD33100A3D9A0 /* bamfield1.png */; };
 		37C7477C167BD33100A3D9A0 /* bamfield2.png in Resources */ = {isa = PBXBuildFile; fileRef = 37C74759167BD33100A3D9A0 /* bamfield2.png */; };
 		37C7477D167BD33100A3D9A0 /* bamfield3.png in Resources */ = {isa = PBXBuildFile; fileRef = 37C7475A167BD33100A3D9A0 /* bamfield3.png */; };
@@ -149,6 +150,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		378E580116837C500036C2D1 /* TPTCoverFlowMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPTCoverFlowMatrix.h; sourceTree = "<group>"; };
+		378E580216837C500036C2D1 /* TPTCoverFlowMatrix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPTCoverFlowMatrix.m; sourceTree = "<group>"; };
 		37C74758167BD33100A3D9A0 /* bamfield1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bamfield1.png; sourceTree = "<group>"; };
 		37C74759167BD33100A3D9A0 /* bamfield2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bamfield2.png; sourceTree = "<group>"; };
 		37C7475A167BD33100A3D9A0 /* bamfield3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bamfield3.png; sourceTree = "<group>"; };
@@ -321,6 +324,8 @@
 				37D7DAE5167A9D0800D7400B /* Layouts */,
 				37C747AE1682631500A3D9A0 /* TPTVerticalCollectionView.h */,
 				37C747AF1682631500A3D9A0 /* TPTVerticalCollectionView.m */,
+				378E580116837C500036C2D1 /* TPTCoverFlowMatrix.h */,
+				378E580216837C500036C2D1 /* TPTCoverFlowMatrix.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -745,6 +750,7 @@
 				37D7DAEA167A9D7300D7400B /* TPTCoverFlowLayout.m in Sources */,
 				37C747B01682631500A3D9A0 /* TPTVerticalCollectionView.m in Sources */,
 				37C747B316827CEE00A3D9A0 /* TPTVerticalCollectionCell.m in Sources */,
+				378E580316837C500036C2D1 /* TPTCoverFlowMatrix.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
