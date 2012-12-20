@@ -508,7 +508,7 @@
 				37D7DAC4167A868600D7400B /* Supporting Files */,
 			);
 			name = TPTCoverFlowMatrix;
-			path = CoverFlowMatrix;
+			path = TPTCoverFlowMatrix;
 			sourceTree = "<group>";
 		};
 		37D7DAC4167A868600D7400B /* Supporting Files */ = {
@@ -571,7 +571,7 @@
 			dependencies = (
 			);
 			name = TPTCoverFlowMatrix;
-			productName = CoverFlowMatrix;
+			productName = TPTCoverFlowMatrix;
 			productReference = 37D7DAB9167A868600D7400B /* TPTCoverFlowMatrix.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -832,8 +832,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CoverFlowMatrix/TPTCoverFlowMatrix-Prefix.pch";
-				INFOPLIST_FILE = "CoverFlowMatrix/TPTCoverFlowMatrix-Info.plist";
+				GCC_PREFIX_HEADER = "TPTCoverFlowMatrix/TPTCoverFlowMatrix-Prefix.pch";
+				INFOPLIST_FILE = "TPTCoverFlowMatrix/TPTCoverFlowMatrix-Info.plist";
 				PRODUCT_NAME = TPTCoverFlowMatrix;
 				WRAPPER_EXTENSION = app;
 			};
@@ -843,8 +843,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CoverFlowMatrix/TPTCoverFlowMatrix-Prefix.pch";
-				INFOPLIST_FILE = "CoverFlowMatrix/TPTCoverFlowMatrix-Info.plist";
+				GCC_PREFIX_HEADER = "TPTCoverFlowMatrix/TPTCoverFlowMatrix-Prefix.pch";
+				INFOPLIST_FILE = "TPTCoverFlowMatrix/TPTCoverFlowMatrix-Info.plist";
 				PRODUCT_NAME = TPTCoverFlowMatrix;
 				WRAPPER_EXTENSION = app;
 			};
