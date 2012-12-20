@@ -278,14 +278,14 @@
 		37C748351682852000A3D9A0 /* winter11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = winter11.png; sourceTree = "<group>"; };
 		37C748361682852000A3D9A0 /* winter12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = winter12.png; sourceTree = "<group>"; };
 		37C748371682852000A3D9A0 /* winter13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = winter13.png; sourceTree = "<group>"; };
-		37D7DAB9167A868600D7400B /* CoverFlowMatrix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoverFlowMatrix.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		37D7DAB9167A868600D7400B /* TPTCoverFlowMatrix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TPTCoverFlowMatrix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37D7DABD167A868600D7400B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		37D7DABF167A868600D7400B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		37D7DAC1167A868600D7400B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		37D7DAC5167A868600D7400B /* CoverFlowMatrix-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CoverFlowMatrix-Info.plist"; sourceTree = "<group>"; };
+		37D7DAC5167A868600D7400B /* TPTCoverFlowMatrix-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TPTCoverFlowMatrix-Info.plist"; sourceTree = "<group>"; };
 		37D7DAC7167A868600D7400B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		37D7DAC9167A868600D7400B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		37D7DACB167A868600D7400B /* CoverFlowMatrix-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CoverFlowMatrix-Prefix.pch"; sourceTree = "<group>"; };
+		37D7DACB167A868600D7400B /* TPTCoverFlowMatrix-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TPTCoverFlowMatrix-Prefix.pch"; sourceTree = "<group>"; };
 		37D7DACC167A868600D7400B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		37D7DACD167A868600D7400B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		37D7DACF167A868600D7400B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -472,7 +472,7 @@
 			isa = PBXGroup;
 			children = (
 				37D7DAEB167AAD6D00D7400B /* QuartzCore.framework */,
-				37D7DAC3167A868600D7400B /* CoverFlowMatrix */,
+				37D7DAC3167A868600D7400B /* TPTCoverFlowMatrix */,
 				37D7DABC167A868600D7400B /* Frameworks */,
 				37D7DABA167A868600D7400B /* Products */,
 			);
@@ -481,7 +481,7 @@
 		37D7DABA167A868600D7400B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				37D7DAB9167A868600D7400B /* CoverFlowMatrix.app */,
+				37D7DAB9167A868600D7400B /* TPTCoverFlowMatrix.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -496,7 +496,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		37D7DAC3167A868600D7400B /* CoverFlowMatrix */ = {
+		37D7DAC3167A868600D7400B /* TPTCoverFlowMatrix */ = {
 			isa = PBXGroup;
 			children = (
 				378E5800168379FC0036C2D1 /* Resources */,
@@ -507,16 +507,17 @@
 				37D7DAE7167A9D2200D7400B /* AppDelegate */,
 				37D7DAC4167A868600D7400B /* Supporting Files */,
 			);
+			name = TPTCoverFlowMatrix;
 			path = CoverFlowMatrix;
 			sourceTree = "<group>";
 		};
 		37D7DAC4167A868600D7400B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				37D7DAC5167A868600D7400B /* CoverFlowMatrix-Info.plist */,
+				37D7DAC5167A868600D7400B /* TPTCoverFlowMatrix-Info.plist */,
 				37D7DAC6167A868600D7400B /* InfoPlist.strings */,
 				37D7DAC9167A868600D7400B /* main.m */,
-				37D7DACB167A868600D7400B /* CoverFlowMatrix-Prefix.pch */,
+				37D7DACB167A868600D7400B /* TPTCoverFlowMatrix-Prefix.pch */,
 				37D7DACF167A868600D7400B /* Default.png */,
 				37D7DAD1167A868700D7400B /* Default@2x.png */,
 				37D7DAD3167A868700D7400B /* Default-568h@2x.png */,
@@ -557,9 +558,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		37D7DAB8167A868600D7400B /* CoverFlowMatrix */ = {
+		37D7DAB8167A868600D7400B /* TPTCoverFlowMatrix */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 37D7DADD167A868700D7400B /* Build configuration list for PBXNativeTarget "CoverFlowMatrix" */;
+			buildConfigurationList = 37D7DADD167A868700D7400B /* Build configuration list for PBXNativeTarget "TPTCoverFlowMatrix" */;
 			buildPhases = (
 				37D7DAB5167A868600D7400B /* Sources */,
 				37D7DAB6167A868600D7400B /* Frameworks */,
@@ -569,9 +570,9 @@
 			);
 			dependencies = (
 			);
-			name = CoverFlowMatrix;
+			name = TPTCoverFlowMatrix;
 			productName = CoverFlowMatrix;
-			productReference = 37D7DAB9167A868600D7400B /* CoverFlowMatrix.app */;
+			productReference = 37D7DAB9167A868600D7400B /* TPTCoverFlowMatrix.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -583,7 +584,7 @@
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Braxio Interactive";
 			};
-			buildConfigurationList = 37D7DAB3167A868600D7400B /* Build configuration list for PBXProject "CoverFlowMatrix" */;
+			buildConfigurationList = 37D7DAB3167A868600D7400B /* Build configuration list for PBXProject "TPTCoverFlowMatrix" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -595,7 +596,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				37D7DAB8167A868600D7400B /* CoverFlowMatrix */,
+				37D7DAB8167A868600D7400B /* TPTCoverFlowMatrix */,
 			);
 		};
 /* End PBXProject section */
@@ -831,9 +832,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CoverFlowMatrix/CoverFlowMatrix-Prefix.pch";
-				INFOPLIST_FILE = "CoverFlowMatrix/CoverFlowMatrix-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "CoverFlowMatrix/TPTCoverFlowMatrix-Prefix.pch";
+				INFOPLIST_FILE = "CoverFlowMatrix/TPTCoverFlowMatrix-Info.plist";
+				PRODUCT_NAME = TPTCoverFlowMatrix;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -842,9 +843,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CoverFlowMatrix/CoverFlowMatrix-Prefix.pch";
-				INFOPLIST_FILE = "CoverFlowMatrix/CoverFlowMatrix-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "CoverFlowMatrix/TPTCoverFlowMatrix-Prefix.pch";
+				INFOPLIST_FILE = "CoverFlowMatrix/TPTCoverFlowMatrix-Info.plist";
+				PRODUCT_NAME = TPTCoverFlowMatrix;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -852,7 +853,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		37D7DAB3167A868600D7400B /* Build configuration list for PBXProject "CoverFlowMatrix" */ = {
+		37D7DAB3167A868600D7400B /* Build configuration list for PBXProject "TPTCoverFlowMatrix" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				37D7DADB167A868700D7400B /* Debug */,
@@ -861,7 +862,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		37D7DADD167A868700D7400B /* Build configuration list for PBXNativeTarget "CoverFlowMatrix" */ = {
+		37D7DADD167A868700D7400B /* Build configuration list for PBXNativeTarget "TPTCoverFlowMatrix" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				37D7DADE167A868700D7400B /* Debug */,
