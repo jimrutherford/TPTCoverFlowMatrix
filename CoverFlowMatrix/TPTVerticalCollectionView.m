@@ -7,7 +7,7 @@
 //
 
 #import "TPTVerticalCollectionView.h"
-#import "ProjectCell.h"
+#import "TPTCell.h"
 
 #define kProjectCellIdentifier @"projectCellIdentifier"
 
@@ -38,7 +38,7 @@
 	
 	collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, 250, self.frame.size.height) collectionViewLayout:flowLayout];
 
-	[self.collectionView registerClass:[ProjectCell class] forCellWithReuseIdentifier:kProjectCellIdentifier];
+	[self.collectionView registerClass:[TPTCell class] forCellWithReuseIdentifier:kProjectCellIdentifier];
 	
 	collectionView.dataSource = self;
 	collectionView.delegate = self;
@@ -65,11 +65,8 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
 	
-	
-	NSLog(@"CollectionView-CellForItemAtIndexPath");
-	
 	static NSString *cellIdentifier = kProjectCellIdentifier;
-	ProjectCell *cell = (ProjectCell *)[self.collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+	TPTCell *cell = (TPTCell *)[self.collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
 	
 	NSString *cellData = [dataArray objectAtIndex:indexPath.row];
 

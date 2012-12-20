@@ -103,11 +103,9 @@
 	static NSString *cellIdentifier = kVerticalCollectionCellIdentifier;
 	TPTVerticalCollectionCell *cell = (TPTVerticalCollectionCell *)[self.horizontalCollectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
 	
-	//NSMutableArray *data = [self.dataArray objectAtIndex:indexPath.section];
-	
 	NSArray *cellData = [dataArray objectAtIndex:indexPath.row];
 	
-	NSLog(@"Cell Data : %@", cellData);
+	//NSLog(@"Cell Data : %@", cellData);
 	
 	[cell.verticalCollection setDataArray:cellData];
 	

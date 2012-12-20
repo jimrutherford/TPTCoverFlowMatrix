@@ -142,8 +142,8 @@
 		37D7DAD4167A868700D7400B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37D7DAD3167A868700D7400B /* Default-568h@2x.png */; };
 		37D7DAD7167A868700D7400B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D7DAD6167A868700D7400B /* ViewController.m */; };
 		37D7DADA167A868700D7400B /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37D7DAD8167A868700D7400B /* ViewController.xib */; };
-		37D7DAE1167A944700D7400B /* ProjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37D7DAE0167A944700D7400B /* ProjectCell.xib */; };
-		37D7DAE4167A977D00D7400B /* ProjectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D7DAE3167A977D00D7400B /* ProjectCell.m */; };
+		37D7DAE1167A944700D7400B /* TPTCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37D7DAE0167A944700D7400B /* TPTCell.xib */; };
+		37D7DAE4167A977D00D7400B /* TPTCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D7DAE3167A977D00D7400B /* TPTCell.m */; };
 		37D7DAEA167A9D7300D7400B /* TPTCoverFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D7DAE9167A9D7300D7400B /* TPTCoverFlowLayout.m */; };
 		37D7DAEC167AAD6D00D7400B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37D7DAEB167AAD6D00D7400B /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
@@ -291,9 +291,9 @@
 		37D7DAD5167A868700D7400B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		37D7DAD6167A868700D7400B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		37D7DAD9167A868700D7400B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
-		37D7DAE0167A944700D7400B /* ProjectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectCell.xib; sourceTree = "<group>"; };
-		37D7DAE2167A977D00D7400B /* ProjectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectCell.h; sourceTree = "<group>"; };
-		37D7DAE3167A977D00D7400B /* ProjectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectCell.m; sourceTree = "<group>"; };
+		37D7DAE0167A944700D7400B /* TPTCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPTCell.xib; sourceTree = "<group>"; };
+		37D7DAE2167A977D00D7400B /* TPTCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPTCell.h; sourceTree = "<group>"; };
+		37D7DAE3167A977D00D7400B /* TPTCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPTCell.m; sourceTree = "<group>"; };
 		37D7DAE8167A9D7300D7400B /* TPTCoverFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPTCoverFlowLayout.h; sourceTree = "<group>"; };
 		37D7DAE9167A9D7300D7400B /* TPTCoverFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPTCoverFlowLayout.m; sourceTree = "<group>"; };
 		37D7DAEB167AAD6D00D7400B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -314,7 +314,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		37C74757167BD33100A3D9A0 /* tiles */ = {
+		378E57FE168379EE0036C2D1 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				37D7DAE6167A9D1600D7400B /* Cells */,
+				37D7DAE5167A9D0800D7400B /* Layouts */,
+				37C747AE1682631500A3D9A0 /* TPTVerticalCollectionView.h */,
+				37C747AF1682631500A3D9A0 /* TPTVerticalCollectionView.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		378E5800168379FC0036C2D1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				37C74757167BD33100A3D9A0 /* Images */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		37C74757167BD33100A3D9A0 /* Images */ = {
 			isa = PBXGroup;
 			children = (
 				37C7480E1682852000A3D9A0 /* space1.png */,
@@ -440,6 +459,7 @@
 				37C74779167BD33100A3D9A0 /* paper4.png */,
 				37C7477A167BD33100A3D9A0 /* paper5.png */,
 			);
+			name = Images;
 			path = tiles;
 			sourceTree = "<group>";
 		};
@@ -474,15 +494,12 @@
 		37D7DAC3167A868600D7400B /* CoverFlowMatrix */ = {
 			isa = PBXGroup;
 			children = (
-				37C74757167BD33100A3D9A0 /* tiles */,
-				37D7DAE7167A9D2200D7400B /* AppDelegate */,
-				37D7DAE6167A9D1600D7400B /* Cells */,
-				37D7DAE5167A9D0800D7400B /* Layouts */,
+				378E5800168379FC0036C2D1 /* Resources */,
+				378E57FE168379EE0036C2D1 /* Classes */,
 				37D7DAD5167A868700D7400B /* ViewController.h */,
 				37D7DAD6167A868700D7400B /* ViewController.m */,
 				37D7DAD8167A868700D7400B /* ViewController.xib */,
-				37C747AE1682631500A3D9A0 /* TPTVerticalCollectionView.h */,
-				37C747AF1682631500A3D9A0 /* TPTVerticalCollectionView.m */,
+				37D7DAE7167A9D2200D7400B /* AppDelegate */,
 				37D7DAC4167A868600D7400B /* Supporting Files */,
 			);
 			path = CoverFlowMatrix;
@@ -514,9 +531,9 @@
 		37D7DAE6167A9D1600D7400B /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				37D7DAE0167A944700D7400B /* ProjectCell.xib */,
-				37D7DAE2167A977D00D7400B /* ProjectCell.h */,
-				37D7DAE3167A977D00D7400B /* ProjectCell.m */,
+				37D7DAE0167A944700D7400B /* TPTCell.xib */,
+				37D7DAE2167A977D00D7400B /* TPTCell.h */,
+				37D7DAE3167A977D00D7400B /* TPTCell.m */,
 				37C747B116827CEE00A3D9A0 /* TPTVerticalCollectionCell.h */,
 				37C747B216827CEE00A3D9A0 /* TPTVerticalCollectionCell.m */,
 			);
@@ -588,7 +605,7 @@
 				37D7DAD2167A868700D7400B /* Default@2x.png in Resources */,
 				37D7DAD4167A868700D7400B /* Default-568h@2x.png in Resources */,
 				37D7DADA167A868700D7400B /* ViewController.xib in Resources */,
-				37D7DAE1167A944700D7400B /* ProjectCell.xib in Resources */,
+				37D7DAE1167A944700D7400B /* TPTCell.xib in Resources */,
 				37C7477B167BD33100A3D9A0 /* bamfield1.png in Resources */,
 				37C7477C167BD33100A3D9A0 /* bamfield2.png in Resources */,
 				37C7477D167BD33100A3D9A0 /* bamfield3.png in Resources */,
@@ -724,7 +741,7 @@
 				37D7DACA167A868600D7400B /* main.m in Sources */,
 				37D7DACE167A868600D7400B /* AppDelegate.m in Sources */,
 				37D7DAD7167A868700D7400B /* ViewController.m in Sources */,
-				37D7DAE4167A977D00D7400B /* ProjectCell.m in Sources */,
+				37D7DAE4167A977D00D7400B /* TPTCell.m in Sources */,
 				37D7DAEA167A9D7300D7400B /* TPTCoverFlowLayout.m in Sources */,
 				37C747B01682631500A3D9A0 /* TPTVerticalCollectionView.m in Sources */,
 				37C747B316827CEE00A3D9A0 /* TPTVerticalCollectionCell.m in Sources */,
