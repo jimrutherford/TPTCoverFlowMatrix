@@ -28,5 +28,12 @@
 @property (nonatomic, strong) NSMutableArray *autumnArray;
 @property (nonatomic, strong) NSMutableArray *animalArray;
 
+@property (weak, nonatomic) IBOutlet UIButton *scrollToCenterButton;
+- (IBAction)onScrollToCenterTouch:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UISlider *fractionalSlider;
+- (IBAction)fractionalValueChanged:(id)sender;
+- (IBAction)fractionalValueTouchUp:(id)sender;
+- (IBAction)fractionalValueTouchDown:(id)sender;
 
 @end

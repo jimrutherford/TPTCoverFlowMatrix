@@ -15,5 +15,13 @@
 
 @property (strong, nonatomic) NSArray *dataArray;
 
+- (void)selectItemAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated scrollPosition:(UICollectionViewScrollPosition)scrollPosition;
+
+- (void)scrollByFractionalValue:(float)value;
+
+@property (nonatomic) BOOL isLiveScrolling;
+
+- (void) startLiveScrolling;
+- (void) stopLiveScrolling;
 
 @end

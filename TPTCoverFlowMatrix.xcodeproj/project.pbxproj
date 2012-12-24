@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		378E580316837C500036C2D1 /* TPTCoverFlowMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = 378E580216837C500036C2D1 /* TPTCoverFlowMatrix.m */; };
+		378E58191688D5760036C2D1 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 378E58181688D5760036C2D1 /* Icon-72@2x.png */; };
+		378E581C1688D5790036C2D1 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 378E581B1688D5790036C2D1 /* Icon-72.png */; };
 		37C7477B167BD33100A3D9A0 /* bamfield1.png in Resources */ = {isa = PBXBuildFile; fileRef = 37C74758167BD33100A3D9A0 /* bamfield1.png */; };
 		37C7477C167BD33100A3D9A0 /* bamfield2.png in Resources */ = {isa = PBXBuildFile; fileRef = 37C74759167BD33100A3D9A0 /* bamfield2.png */; };
 		37C7477D167BD33100A3D9A0 /* bamfield3.png in Resources */ = {isa = PBXBuildFile; fileRef = 37C7475A167BD33100A3D9A0 /* bamfield3.png */; };
@@ -152,6 +154,8 @@
 /* Begin PBXFileReference section */
 		378E580116837C500036C2D1 /* TPTCoverFlowMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPTCoverFlowMatrix.h; sourceTree = "<group>"; };
 		378E580216837C500036C2D1 /* TPTCoverFlowMatrix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPTCoverFlowMatrix.m; sourceTree = "<group>"; };
+		378E58181688D5760036C2D1 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
+		378E581B1688D5790036C2D1 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		37C74758167BD33100A3D9A0 /* bamfield1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bamfield1.png; sourceTree = "<group>"; };
 		37C74759167BD33100A3D9A0 /* bamfield2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bamfield2.png; sourceTree = "<group>"; };
 		37C7475A167BD33100A3D9A0 /* bamfield3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bamfield3.png; sourceTree = "<group>"; };
@@ -471,6 +475,8 @@
 		37D7DAAE167A868600D7400B = {
 			isa = PBXGroup;
 			children = (
+				378E581B1688D5790036C2D1 /* Icon-72.png */,
+				378E58181688D5760036C2D1 /* Icon-72@2x.png */,
 				37D7DAEB167AAD6D00D7400B /* QuartzCore.framework */,
 				37D7DAC3167A868600D7400B /* TPTCoverFlowMatrix */,
 				37D7DABC167A868600D7400B /* Frameworks */,
@@ -507,7 +513,6 @@
 				37D7DAE7167A9D2200D7400B /* AppDelegate */,
 				37D7DAC4167A868600D7400B /* Supporting Files */,
 			);
-			name = TPTCoverFlowMatrix;
 			path = TPTCoverFlowMatrix;
 			sourceTree = "<group>";
 		};
@@ -734,6 +739,8 @@
 				37C7485F1682852000A3D9A0 /* winter11.png in Resources */,
 				37C748601682852000A3D9A0 /* winter12.png in Resources */,
 				37C748611682852000A3D9A0 /* winter13.png in Resources */,
+				378E58191688D5760036C2D1 /* Icon-72@2x.png in Resources */,
+				378E581C1688D5790036C2D1 /* Icon-72.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

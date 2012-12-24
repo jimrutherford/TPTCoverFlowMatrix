@@ -16,6 +16,7 @@
 
 @synthesize collectionView;
 @synthesize dataArray;
+@synthesize isLiveScrolling;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -54,11 +55,53 @@
 	
 }
 
+
+#pragma mark - Selection Methods
+
+- (void)selectItemAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated scrollPosition:(UICollectionViewScrollPosition)scrollPosition
+{
+	[collectionView selectItemAtIndexPath:indexPath animated:animated scrollPosition:scrollPosition];
+}
+
+
+#pragma mark - Live Scrolling
+
+int liveScrollingDirection = 1;
+CGPoint startingContentOffset;
+
+
+- (void) startLiveScrolling
+{
+	isLiveScrolling = YES;
+	startingContentOffset = collectionView.contentOffset;
+}
+- (void) stopLiveScrolling
+{
+	isLiveScrolling = NO;
+}
+
+- (void)scrollByFractionalValue:(float)value
+{
+	
+	CGPoint newOffset = CGPointMake(startingContentOffset.x + 250 * value, startingContentOffset.y);
+	
+	
+	collectionView.contentOffset = newOffset;
+}
+
+
+
+#pragma mark - Getters/Setters
 -(void) setDataArray:(NSArray *)aDataArray
 {
 	dataArray = aDataArray;
 	[self.collectionView reloadData];
 }
+
+
+
+
+#pragma mark - UICollectionView Delegate Methods
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
 	return 1;

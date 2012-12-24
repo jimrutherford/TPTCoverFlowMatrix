@@ -77,7 +77,7 @@
 	dataArray = [NSArray arrayWithObjects: blurArray, bamfieldArray, paperArray, mexicoArray, spaceArray, travelArray, winterArray, foodArray, celebrityArray, autumnArray, animalArray, nil];
 	
 	
-	coverFlowMatrix = [[TPTCoverFlowMatrix alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+	coverFlowMatrix = [[TPTCoverFlowMatrix alloc] initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height - 60)];
 	coverFlowMatrix.dataArray = dataArray;
 
 	[self.view addSubview:coverFlowMatrix];
@@ -94,4 +94,24 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)onScrollToCenterTouch:(id)sender {
+	 NSIndexPath *indexPath = [NSIndexPath indexPathForItem:4 inSection:0];
+	[coverFlowMatrix selectItemAtIndexPath:indexPath animated:YES scrollPosition:UICollectionViewScrollPositionCenteredHorizontally];
+}
+- (IBAction)fractionalValueChanged:(id)sender {
+	
+	UISlider * slider = (UISlider*)sender;
+	
+	[coverFlowMatrix scrollByFractionalValue:slider.value];
+	//NSLog(@"Fractional Value - %f", slider.value);
+	
+}
+
+- (IBAction)fractionalValueTouchUp:(id)sender {
+	[coverFlowMatrix stopLiveScrolling];
+}
+
+- (IBAction)fractionalValueTouchDown:(id)sender {
+	[coverFlowMatrix startLiveScrolling];
+}
 @end
